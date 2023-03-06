@@ -1,4 +1,176 @@
-img{
-    height: 40vh;
-    width: 65vw;
+@media screen and (max-width: 1920px) {
+
+    img{
+        height: 45vh;
+        width: 65vw;
+    }
+
+    #img2{
+        height: 65vh;
+        width: 35vw;
+    }
+
+    #parrafos{
+        margin-top: 7%;
+        margin-left: 10%;
+        padding: 0%;
+    }
+
+    #parrafos h1{
+        font-size:58px;
+        margin: 0%;
+        margin-bottom: 5%;
+        padding: 0%;
+    }
+
+    #imagen{
+        margin: 5%;
+        margin-left: 10%;
+        padding: 0%;
+    }
+
+}
+
+@media screen and (max-width: 1440px) {
+
+    img{
+        height: 45vh;
+        width: 65vw;
+    }
+
+    #img2{
+        height: 55vh;
+        width: 40vw;
+    }
+
+    #parrafos{
+        margin-top: 7%;
+        margin-left: 10%;
+        padding: 0%;
+    }
+
+    #parrafos h1{
+        font-size:45px;
+        margin: 0%;
+        margin-bottom: 5%;
+        padding: 0%;
+    }
+
+    #parrafos p{
+        font-size:35px;
+        margin: 0%;
+        padding: 0%;
+    }
+    
+}
+
+@media screen and (max-width: 1024px) {
+
+    img{
+        height: 40vh;
+        width: 65vw;
+    }
+
+    #img2{
+        height: 45vh;
+        width: 35vw;
+    }
+
+    #parrafos{
+        margin-top: 3%;
+        margin-left: 10%;
+        padding: 0%;
+    }
+
+    #parrafos h1{
+        font-size:38px;
+        margin: 0%;
+        margin-bottom: 5%;
+        padding: 0%;
+    }
+
+    #parrafos p{
+        font-size:25px;
+        margin: 0%;
+        padding: 0%;
+    }
+
+    #imagen{
+        margin: 2%;
+        margin-left: 10%;
+        padding: 0%;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+
+    img{
+        height: 35vh;
+        width: 65vw;
+    }
+
+    #img2{
+        height: 40vh;
+        width: 35vw;
+    }
+
+    #parrafos{
+        margin-top: 4%;
+        margin-left: 10%;
+        padding: 0%;
+    }
+
+    #parrafos h1{
+        font-size:31px;
+        margin: 0%;
+        margin-bottom: 5%;
+        padding: 0%;
+    }
+
+    #parrafos p{
+        font-size:21px;
+        margin: 0%;
+        padding: 0%;
+    }
+
+    #imagen{
+        margin: 2%;
+        margin-left: 10%;
+        padding: 0%;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    img{
+        height: 20vh;
+        width: 65vw;
+    }
+
+    #img2{
+        height: 23vh;
+        width: 35vw;
+    }
+
+    #parrafos{
+        margin-top: 5%;
+        margin-left: 10%;
+        padding: 0%;
+    }
+
+    #parrafos h1{
+        font-size:18px;
+        margin: 0%;
+        margin-bottom: 5%;
+        padding: 0%;
+    }
+
+    #parrafos p{
+        font-size:11px;
+        margin: 0%;
+        padding: 0%;
+    }
+    
 }
