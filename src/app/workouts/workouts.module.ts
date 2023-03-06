@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdministrarComponent } from './components/administrar/administrar.component';
 import { FitnessComponent } from './components/fitness/fitness.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditarComponent } from './components/editar/editar.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,13 +16,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     InicioComponent,
     ContactoComponent,
     AdministrarComponent,
-    FitnessComponent
+    FitnessComponent,
+    EditarComponent
   ],
   imports: [
     CommonModule,
     WorkoutsRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class WorkoutsModule { }

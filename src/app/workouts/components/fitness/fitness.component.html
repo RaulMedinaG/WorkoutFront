@@ -5,11 +5,16 @@
     </div>
   </div>
     <div class="d-flex flex-wrap justify-content-center mt-3">
-        <div class="card m-3" *ngFor="let work of workouts" style="width: 18rem; height: 12rem;">
+        <div class="card m-3" *ngFor="let work of workouts" style="width: 18rem; height: 14rem;">
             <div class="card-body">
               <h5 class="card-title text-center mb-3">{{work.name}}</h5>
+
               <h6 class="card-subtitle mb-2 text-center text-muted">Trainer Tips</h6>
               <p class="card-text">{{work.trainerTips}}</p>
+            </div>
+            <div class="d-flex justify-content-around align-items-center mb-3">
+              <button class="btn btn-danger" (click)="eliminar(work._id)">Eliminar</button>
+              <a [routerLink]="['/workouts/editar/', work._id]"><button class="btn btn-primary">Editar</button></a>
             </div>
           </div>
     </div>

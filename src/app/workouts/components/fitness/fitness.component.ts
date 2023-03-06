@@ -37,4 +37,10 @@ export class FitnessComponent implements OnInit {
 
   }
 
+  eliminar(id:any){
+    this.service.deleteOneWorkout(id).subscribe(() => this.Workouts());
+  }
+
+  
+
 }

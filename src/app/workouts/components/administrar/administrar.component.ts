@@ -10,11 +10,10 @@ import { WorkoutService } from '../../services/workout.service';
 export class AdministrarComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
-    name: ['name', Validators.required],
-    mode: ['mode', Validators.required],
-    equipment: ['equipment', Validators.required],
-    exercises: ['exercises', Validators.required],
-    trainertips: ['trainertips', Validators.required],
+    name: ['', Validators.required],
+    mode: ['', Validators.required],
+    equipment: ['', Validators.required],
+    trainerTips: ['', Validators.required],
   })
 
   constructor(private fb: FormBuilder, private service: WorkoutService) { }
@@ -25,8 +24,16 @@ export class AdministrarComponent implements OnInit {
   add(){
     console.log(this.miFormulario.value);
     console.log(this.miFormulario.valid);
-    this.service.postOneWorkout(this.miFormulario.value.name, this.miFormulario.value.mode, this.miFormulario.value.equipment, this.miFormulario.value.exercises, this.miFormulario.value.trainerTips).subscribe((response) => {
-      console.log(response.data);
+    
+    let workout = {
+      name: this.miFormulario.value.name,
+      mode: this.miFormulario.value.mode,
+      equipment: this.miFormulario.value.equipment.split(','),
+      trainerTips: this.miFormulario.value.equipment.split(',')
+    }
+    
+    this.service.postOneWorkout(workout).subscribe((response) => {
+      console.log(response);
     });
   }
 
