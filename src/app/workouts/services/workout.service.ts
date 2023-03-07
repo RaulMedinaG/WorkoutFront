@@ -24,12 +24,12 @@ export class WorkoutService {
     return this.httpClient.delete(this.url +'/'+ _id);
   }
 
-  patchOneWorkout(body:any, _id:any){
-    return this.httpClient.patch(this.url +'/'+ _id, body);
+  patchOneWorkout(_id:String, body:any):Observable<Workouts>{
+    return this.httpClient.patch<Workouts>(this.url +'/'+ _id, body);
   }
 
-  getOneWorkout(_id:any){
-    return this.httpClient.get(this.url +'/'+ _id);
+  getOneWorkout(_id:any):Observable<Workouts>{
+    return this.httpClient.get<Workouts>(this.url +'/'+ _id);
   }
 
 }

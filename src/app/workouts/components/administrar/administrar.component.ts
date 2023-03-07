@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { WorkoutService } from '../../services/workout.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class AdministrarComponent implements OnInit {
     trainerTips: ['', Validators.required],
   })
 
-  constructor(private fb: FormBuilder, private service: WorkoutService) { }
+  constructor(private fb: FormBuilder, private service: WorkoutService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -28,13 +29,16 @@ export class AdministrarComponent implements OnInit {
     let workout = {
       name: this.miFormulario.value.name,
       mode: this.miFormulario.value.mode,
-      equipment: this.miFormulario.value.equipment.split(','),
-      trainerTips: this.miFormulario.value.equipment.split(',')
+      equipment: this.miFormulario.value.equipment?.split(','),
+      trainerTips: this.miFormulario.value.trainerTips?.split(',')
     }
     
     this.service.postOneWorkout(workout).subscribe((response) => {
       console.log(response);
     });
+
+    this.router.navigate(['/workouts/fitness'])
+
   }
 
 }

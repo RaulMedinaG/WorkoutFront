@@ -24,30 +24,31 @@ export class EditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRouter.params.subscribe(({id}) => {
-      this.service.getOneWorkout(id).subscribe((response) => {
-        this.workout = response;
+      this.service.getOneWorkout(id).subscribe(response => {
+        this.workout = response.data;
+
         this.miFormulario = this.fb.group({
-          name: [, Validators.required],
-          mode: [, Validators.required],
-          equipment: [, Validators.required],
-          trainerTips: [, Validators.required],
+          name: [this.workout.name, Validators.required],
+          mode: [this.workout.mode, Validators.required],
+          equipment: [this.workout.equipment.join(','), Validators.required],
+          trainerTips: [this.workout.trainerTips.join(','), Validators.required],
         });
       });
     })
   }
 
-  editar(id:any){
+  editar(id:string){
     console.log(this.miFormulario.value);
     console.log(this.miFormulario.valid);
     
     let workout = {
       name: this.miFormulario.value.name,
       mode: this.miFormulario.value.mode,
-      equipment: this.miFormulario.value.equipment.split(','),
-      trainerTips: this.miFormulario.value.equipment.split(',')
+      equipment: this.miFormulario.value.equipment?.split(','),
+      trainerTips: this.miFormulario.value.trainerTips?.split(',')
     }
 
-    this.service.patchOneWorkout(workout, id).subscribe(response => {
+    this.service.patchOneWorkout(id, workout).subscribe(response => {
       console.log(response);
     })
 
