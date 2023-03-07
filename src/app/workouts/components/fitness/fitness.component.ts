@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutService } from '../../services/workout.service';
 import { Datum } from '../../interfaces/workouts.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-fitness',
@@ -38,9 +39,18 @@ export class FitnessComponent implements OnInit {
   }
 
   eliminar(id:any){
-    this.service.deleteOneWorkout(id).subscribe(() => this.Workouts());
+    Swal.fire({
+      title: '¿Estás seguro de que quieres eliminarlo?',
+      showDenyButton: true,
+      confirmButtonText: 'Confirmar',
+      denyButtonText: `Cancelar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('¡Hecho!', '', 'success');
+        this.service.deleteOneWorkout(id).subscribe(() => this.Workouts());
+      } else if (result.isDenied) {
+        Swal.fire('Cambios no guardados', '', 'info')
+      }
+    })    
   }
-
-  
-
 }

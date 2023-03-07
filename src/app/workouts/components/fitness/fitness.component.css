@@ -1,0 +1,56 @@
+@media screen and (max-width: 1920px) {
+
+    #grid{
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        padding: 2em;
+    }
+
+    input{
+        width: 100%;
+    }
+    
+}
+@media screen and (max-width: 1440px) {
+
+    #grid{
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25% ;
+        padding: 2em;
+    }
+    
+}
+@media screen and (max-width: 1024px) {
+
+    #grid{
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        padding: 2em;
+    }
+    
+}
+
+
+@media screen and (max-width: 768px) {
+
+    #grid{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 2em;
+    }
+
+    input{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    #grid{
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 2em;
+    }
+    
+}
