@@ -23,8 +23,6 @@ export class AdministrarComponent implements OnInit {
   }
 
   add(){
-    console.log(this.miFormulario.value);
-    console.log(this.miFormulario.valid);
     
     let workout = {
       name: this.miFormulario.value.name,

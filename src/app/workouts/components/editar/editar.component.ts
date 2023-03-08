@@ -38,8 +38,6 @@ export class EditarComponent implements OnInit {
   }
 
   editar(id:string){
-    console.log(this.miFormulario.value);
-    console.log(this.miFormulario.valid);
     
     let workout = {
       name: this.miFormulario.value.name,
@@ -55,7 +53,7 @@ export class EditarComponent implements OnInit {
       denyButtonText: `Cancelar`,
     }).then((result) => {
       if (result.isConfirmed) {
-        this.service.patchOneWorkout(id, workout).subscribe((response) =>console.log(response));
+        this.service.patchOneWorkout(id, workout).subscribe((response) => console.log(response));
         this.router.navigate(['workouts/fitness']);
       } else if (result.isDenied) {
         Swal.fire('Cambios no guardados', '', 'info')
