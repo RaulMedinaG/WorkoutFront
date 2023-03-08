@@ -20,8 +20,8 @@ export class WorkoutService {
     return this.httpClient.post<Workouts>(this.url, workout);
   }
 
-  deleteOneWorkout(_id:any){
-    return this.httpClient.delete(this.url +'/'+ _id);
+  deleteOneWorkout(_id:any):Observable<Workouts>{
+    return this.httpClient.delete<Workouts>(this.url +'/'+ _id);
   }
 
   patchOneWorkout(_id:String, body:any):Observable<Workouts>{

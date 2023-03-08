@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { response } from 'express';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { WorkoutService } from '../../services/workout.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class EditarComponent implements OnInit {
     trainerTips: [],
   });
 
-  constructor(private fb: FormBuilder, private service: WorkoutService, private activeRouter:ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private service: WorkoutService, private activeRouter:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
     this.activeRouter.params.subscribe(({id}) => {
@@ -48,9 +48,20 @@ export class EditarComponent implements OnInit {
       trainerTips: this.miFormulario.value.trainerTips?.split(',')
     }
 
-    this.service.patchOneWorkout(id, workout).subscribe(response => {
-      console.log(response);
+    Swal.fire({
+      title: '¿Estás seguro de que quieres editarlo?',
+      showDenyButton: true,
+      confirmButtonText: 'Confirmar',
+      denyButtonText: `Cancelar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.patchOneWorkout(id, workout).subscribe((response) =>console.log(response));
+        this.router.navigate(['workouts/fitness']);
+      } else if (result.isDenied) {
+        Swal.fire('Cambios no guardados', '', 'info')
+      }
     })
+
 
   }
 
